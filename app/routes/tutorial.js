@@ -36,7 +36,7 @@ for(const page of pages) {
     });
 }
 
-import { connect, model, Schema } from 'mongoose';
+import { connect, model, Schema } from '@seal-security/mongoose-fixed';
 
 await connect('mongodb://127.0.0.1:27017/exploit');
 
