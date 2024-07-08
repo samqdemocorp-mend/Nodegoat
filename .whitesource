@@ -1,7 +1,4 @@
 {
-  "settingsInheritedFrom": "samqdemocorp-mend/whitesource-config@main",
-  "scanSettingsSAST": {
-    "configExternalURL": "https://raw.githubusercontent.com/samqdemocorp-mend/whitesource-config/main/sast/enginegen/mendsastcli-config.json"
-  }
+  "settingsInheritedFrom": "samqdemocorp-mend/whitesource-config@main"
 }
 
